@@ -9,7 +9,7 @@ import { GithubIcon } from "@/components/icons";
 
 export default function Home() {
   return (
-    <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
+    <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10 ">
       <div className="inline-block max-w-xl text-center justify-center">
         <h1 className={title()}>Domine o Mercado de&nbsp;</h1>
         <h1 className={title({ color: "green" })}>Albion Online&nbsp;</h1>
@@ -31,7 +31,7 @@ export default function Home() {
         </Link>
       </div>
 
-      <div className="flex flex-col items-center justify-center gap-3 mt-24 max-w-2xl">
+      <div className="flex flex-col items-center justify-center gap-3 mt-16 lg: max-w-3xl ">
         <h3 className={title({ size: "sm" })}>Por que utilizar?</h3>
         <h2 className={clsx(subtitle(), "text-center")}>
           Transforme sua experiência de comércio no Albion Online. Nosso bot é a

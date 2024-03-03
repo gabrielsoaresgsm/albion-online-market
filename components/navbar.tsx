@@ -24,7 +24,7 @@ import {
   DiscordIcon,
   HeartFilledIcon,
   SearchIcon,
-	CustomIcon,
+  CustomIcon,
 } from "@/components/icons";
 
 import { Logo } from "@/components/icons";
@@ -62,6 +62,11 @@ export const Navbar = () => {
         className="hidden sm:flex basis-1/5 sm:basis-full"
         justify="end"
       >
+        <NavbarItem className="hidden sm:flex items-center gap-2">
+          Status do BOT:{" "}
+          <span className="text-emerald-600 font-semibold">Online</span>
+          <span className="inline-block h-3 w-3 bg-emerald-600 rounded-full animate-pulse" />
+        </NavbarItem>
         <NavbarItem className="hidden sm:flex gap-2">
           <Link isExternal href={siteConfig.links.discord} aria-label="Discord">
             <DiscordIcon className="text-default-500" />
@@ -70,6 +75,11 @@ export const Navbar = () => {
       </NavbarContent>
 
       <NavbarContent className="sm:hidden basis-1 pl-4" justify="end">
+      <div className="gap-2 flex items-center">
+          Status:{" "}
+          <span className="text-emerald-600 font-semibold">Online</span>
+          <span className="inline-block h-3 w-3 bg-emerald-600 rounded-full animate-pulse" />
+        </div>
         <Link isExternal href={siteConfig.links.discord} aria-label="Discord">
           <DiscordIcon className="text-default-500" />
         </Link>
