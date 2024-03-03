@@ -12,6 +12,6 @@ export const getDiscloudAppStatus = async (appId: string): Promise<ApiResponse> 
     return response.data;
   } catch (error) {
     console.error('Error fetching Discloud app status:', error);
-    throw error;
+    return { status: 'error', message: 'Failed to fetch status', apps: {}}
   }
 };

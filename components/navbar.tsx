@@ -23,12 +23,8 @@ import {
 
 import { getDiscloudAppStatus } from "@/app/services/discloudApi";
 
-const getStatus = async (appId: string) => {
-  return getDiscloudAppStatus(appId);
-};
-
 export const Navbar = async () => {
-  const { status, apps } = await getStatus("1709134248822");
+  const { status } = await getDiscloudAppStatus("1709134248822");
   const online = status === "ok";
 
   const statusBotText = () => {

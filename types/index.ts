@@ -10,14 +10,14 @@ interface NetIO {
 }
 
 export interface AppStatus {
-  id: string;
-  container: string;
-  cpu: string;
-  memory: string;
-  ssd: string;
-  netIO: NetIO;
-  last_restart: string;
-  startedAt: string;
+  id?: string;
+  container?: string;
+  cpu?: string;
+  memory?: string;
+  ssd?: string;
+  netIO?: NetIO;
+  last_restart?: string;
+  startedAt?: string;
 }
 
 export interface ApiResponse {
