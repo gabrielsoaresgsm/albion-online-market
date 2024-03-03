@@ -8,11 +8,19 @@ export const siteConfig = {
 			label: "Início",
 			href: "/",
 		},
+		{
+			label: "Informar um Bug",
+			href: "https://discord.gg/vZCNj23BCq",
+		},
 	],
 	navMenuItems: [
 		{
 			label: "Início",
 			href: "/",
+		},
+		{
+			label: "Informar um Bug",
+			href: "https://discord.gg/vZCNj23BCq",
 		},
 	],
 	links: {

@@ -1,6 +1,7 @@
+import { ApiResponse } from '@/types';
 import axios from 'axios';
 
-const getDiscloudAppStatus = async (appId) => {
+export const getDiscloudAppStatus = async (appId: string): Promise<ApiResponse> => {
   const url = `https://api.discloud.app/v2/app/${appId}/status`;
   try {
     const response = await axios.get(url, {

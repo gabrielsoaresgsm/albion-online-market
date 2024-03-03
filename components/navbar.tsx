@@ -28,14 +28,26 @@ import {
 } from "@/components/icons";
 
 import { Logo } from "@/components/icons";
+import { getDiscloudAppStatus } from "@/app/services/discloudApi";
 
-export const Navbar = () => {
+const getStatus = async (appId: string) => {
+  return getDiscloudAppStatus(appId);
+};
+
+export const Navbar = async () => {
+  const { status, apps } = await getStatus("1709134248822");
+  const online = status === "ok";
+
+  const statusBotText = () => {
+    if (online) return "Online";
+    return "Offline";
+  };
+
   return (
     <NextUINavbar maxWidth="xl" position="sticky">
       <NavbarContent className="basis-1/5 sm:basis-full" justify="start">
         <NavbarBrand as="li" className="gap-3 max-w-fit">
           <NextLink className="flex justify-start items-center gap-1" href="/">
-            {/* <Logo /> */}
             <CustomIcon />
             <p className="font-bold text-inherit">Livius Albion Market</p>
           </NextLink>
@@ -64,8 +76,20 @@ export const Navbar = () => {
       >
         <NavbarItem className="hidden sm:flex items-center gap-2">
           Status do BOT:{" "}
-          <span className="text-emerald-600 font-semibold">Online</span>
-          <span className="inline-block h-3 w-3 bg-emerald-600 rounded-full animate-pulse" />
+          <span
+            className={clsx("font-semibold", {
+              "text-emerald-600": online,
+              "text-red-500": !online,
+            })}
+          >
+            {statusBotText()}
+          </span>
+          <span
+            className={clsx("inline-block h-3 w-3 rounded-full animate-pulse", {
+              "bg-emerald-600": online,
+              "bg-red-500": !online,
+            })}
+          />
         </NavbarItem>
         <NavbarItem className="hidden sm:flex gap-2">
           <Link isExternal href={siteConfig.links.discord} aria-label="Discord">
@@ -75,10 +99,22 @@ export const Navbar = () => {
       </NavbarContent>
 
       <NavbarContent className="sm:hidden basis-1 pl-4" justify="end">
-      <div className="gap-2 flex items-center">
+        <div className="gap-2 flex items-center">
           Status:{" "}
-          <span className="text-emerald-600 font-semibold">Online</span>
-          <span className="inline-block h-3 w-3 bg-emerald-600 rounded-full animate-pulse" />
+          <span
+            className={clsx("font-semibold", {
+              "text-emerald-600": status,
+              "text-red-500": !status,
+            })}
+          >
+            {statusBotText()}
+          </span>
+          <span
+            className={clsx("inline-block h-3 w-3 rounded-full animate-pulse", {
+              "bg-emerald-600": status,
+              "bg-red-500": !status,
+            })}
+          />
         </div>
         <Link isExternal href={siteConfig.links.discord} aria-label="Discord">
           <DiscordIcon className="text-default-500" />
