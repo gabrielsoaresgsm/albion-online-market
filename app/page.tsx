@@ -25,7 +25,7 @@ export default function Home() {
         <Link
           isExternal
           href={siteConfig.links.invite}
-          className={clsx(buttonStyles({ radius: "full" }), "bg-primary")}
+          className={clsx(buttonStyles({ radius: "full" }), "bg-primary animate-pulse")}
         >
           Adicionar ao Servidor
         </Link>
