@@ -25,13 +25,19 @@ export default function Home() {
         <Link
           isExternal
           href={siteConfig.links.invite}
-          className={clsx(
-            buttonStyles({ radius: "full" }),
-            "bg-primary",
-          )}
+          className={clsx(buttonStyles({ radius: "full" }), "bg-primary")}
         >
           Adicionar ao Servidor
         </Link>
+      </div>
+
+      <div className="flex flex-col items-center justify-center gap-3 mt-24 max-w-2xl">
+        <h3 className={title({ size: "sm" })}>Por que utilizar?</h3>
+        <h2 className={clsx(subtitle(), "text-center")}>
+          Transforme sua experiência de comércio no Albion Online. Nosso bot é a
+          ferramenta perfeita para jogadores sérios que desejam ter vantagem no
+          mercado, oferecendo análises de mercado precisas e atualizadas.
+        </h2>
       </div>
     </section>
   );
