@@ -11,7 +11,11 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        background: '#191a1e'        
+        background: '#191a1e', 
+        primary: '#059669',
+      },
+      opacity: {
+        '12': '0.12',
       },
     },
   },

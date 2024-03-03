@@ -12,7 +12,7 @@ export default function Home() {
     <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
       <div className="inline-block max-w-xl text-center justify-center">
         <h1 className={title()}>Domine o Mercado de&nbsp;</h1>
-        <h1 className={title({ color: "violet" })}>Albion Online&nbsp;</h1>
+        <h1 className={title({ color: "green" })}>Albion Online&nbsp;</h1>
         <h1 className={title()}>com Inteligência e Agilidade!</h1>
         <h2 className={subtitle({ class: "mt-4" })}>
           Acesse os preços em tempo real do mercado de Albion Online! Integração
@@ -26,8 +26,8 @@ export default function Home() {
           isExternal
           href={siteConfig.links.invite}
           className={clsx(
-            buttonStyles({ radius: "full", variant: "shadow" }),
-            "bg-gradient-to-tr from-[#FF1CF7] to-[#b249f8]"
+            buttonStyles({ radius: "full" }),
+            "bg-primary",
           )}
         >
           Adicionar ao Servidor
