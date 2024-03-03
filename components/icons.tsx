@@ -23,6 +23,24 @@ export const Logo: React.FC<IconSvgProps> = ({
 	</svg>
 );
 
+export const CustomIcon: React.FC<IconSvgProps> = ({ size = 19 }) => {
+  return (
+    <svg 
+      width={size * (23/19)} // Mantém a proporção baseada na altura padrão de 19
+      height={size} 
+      viewBox="0 0 23 19" 
+      fill="none" 
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path fillRule="evenodd" clipRule="evenodd" d="M13.5 3.5L11.5 0L0.5 18.5H4.43526L13.5 3.5Z" fill="white"/>
+      <path d="M11.5 0L13.5 3.5L4.43526 18.5H0.5L11.5 0Z" fill="white"/>
+      <path fillRule="evenodd" clipRule="evenodd" d="M8.02503 14.9859L5.99567 18.4565L23 18.5L20.0002 15L8.02503 14.9859Z" fill="white"/>
+      <path d="M5.99567 18.4565L8.02503 14.9859L20.0002 15L23 18.5L5.99567 18.4565Z" fill="white"/>
+      <path d="M12.3799 7.54667L14.371 4L19.8243 13.5672H9L10.9572 10.0811H13.8244L12.3799 7.54667Z" fill="white"/>
+    </svg>
+  );
+};
+
 export const DiscordIcon: React.FC<IconSvgProps> = ({
 	size = 24,
 	width,
