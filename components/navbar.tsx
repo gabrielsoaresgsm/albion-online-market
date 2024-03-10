@@ -13,7 +13,7 @@ import { link as linkStyles } from "@nextui-org/theme";
 
 import { siteConfig } from "@/config/site";
 import NextLink from "next/link";
-const { discloud } = require("discloud.app");
+import { discloud } from "discloud.app";
 import clsx from "clsx";
 
 import { DiscordIcon, CustomIcon } from "@/components/icons";
@@ -24,17 +24,21 @@ const TOKEN =
 
 export const Navbar = async () => {
   let online = false;
-
+  
   try {
     await discloud.login(TOKEN);
     const responseUser = getDiscloudAppStatus();
-    const app = (await responseUser)?.user?.apps?.[0]
-    const response = await discloud.apps.fetch(app);
-    online = response?.online;
+    const app = (await responseUser)?.user?.apps?.[0];
+    if (app) {
+      const response = await discloud.apps.fetch(app);
+      online = response?.online;
+    } else {
+      console.error("Nenhum aplicativo encontrado para buscar informações.");
+    }
   } catch (error) {
     console.error("Erro ao buscar informações do aplicativo:", error);
   }
-
+  
   const statusBotText = () => {
     if (online) return "Online";
     return "Offline";
