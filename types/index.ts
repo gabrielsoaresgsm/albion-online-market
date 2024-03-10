@@ -25,3 +25,21 @@ export interface ApiResponse {
   message: string;
   apps: AppStatus;
 }
+
+export interface Root {
+  status: string
+  message: string
+  user: Partial<User>
+}
+
+export interface User {
+  userID: string
+  totalRamMb: number
+  ramUsedMb: number
+  subdomains: any[]
+  customdomains: any[]
+  apps: string[]
+  plan: string
+  locale: string
+  planDataEnd: string
+}

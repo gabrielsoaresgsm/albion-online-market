@@ -17,6 +17,7 @@ const { discloud } = require("discloud.app");
 import clsx from "clsx";
 
 import { DiscordIcon, CustomIcon } from "@/components/icons";
+import { getDiscloudAppStatus } from "@/app/services/discloudApi";
 
 const TOKEN =
   "eyJhbGciOiJIUzI1NiJ9.eyJpZCI6IjQ4MTk1NzczMjQ4MDU4MTY1MCIsImtleSI6IjUxYWRmMzRiNTFkMWZmMTljNGNiNjVkZTkxZTAifQ.dO-iBSuyVKPB4z_RpSrI4kMFTIEw60M1ldlgnXhZyvs";
@@ -26,7 +27,9 @@ export const Navbar = async () => {
 
   try {
     await discloud.login(TOKEN);
-    const response = await discloud.apps.fetch("1709780239814");
+    const responseUser = getDiscloudAppStatus();
+    const app = (await responseUser)?.user?.apps?.[0]
+    const response = await discloud.apps.fetch(app);
     online = response?.online;
   } catch (error) {
     console.error("Erro ao buscar informações do aplicativo:", error);
