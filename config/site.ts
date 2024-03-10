@@ -10,7 +10,15 @@ export const siteConfig = {
 		},
 		{
 			label: "Informar um Bug",
-			href: "https://discord.gg/vZCNj23BCq",
+			href: "https://discord.gg/FXUbAZFFtj",
+		},
+		{
+			label: "Termos de Serviço",
+			href: "/terms",
+		},
+		{
+			label: "Política de Privacidade",
+			href: "/privacy",
 		},
 	],
 	navMenuItems: [
@@ -20,11 +28,19 @@ export const siteConfig = {
 		},
 		{
 			label: "Informar um Bug",
-			href: "https://discord.gg/vZCNj23BCq",
+			href: "https://discord.gg/FXUbAZFFtj",
+		},
+		{
+			label: "Termos de Serviço",
+			href: "/terms",
+		},
+		{
+			label: "Política de Privacidade",
+			href: "/privacy",
 		},
 	],
 	links: {
-		discord: "https://discord.gg/vZCNj23BCq",
+		discord: "https://discord.gg/FXUbAZFFtj",
 		invite: "https://discord.com/oauth2/authorize?client_id=1082860291152420954&permissions=2147593280&scope=bot"
 	},
 };

@@ -19,12 +19,10 @@ import clsx from "clsx";
 import { DiscordIcon, CustomIcon } from "@/components/icons";
 import { getDiscloudAppStatus } from "@/app/services/discloudApi";
 
-const TOKEN =
-  "eyJhbGciOiJIUzI1NiJ9.eyJpZCI6IjQ4MTk1NzczMjQ4MDU4MTY1MCIsImtleSI6IjUxYWRmMzRiNTFkMWZmMTljNGNiNjVkZTkxZTAifQ.dO-iBSuyVKPB4z_RpSrI4kMFTIEw60M1ldlgnXhZyvs";
+const TOKEN = process.env.TOKEN;
 
 export const Navbar = async () => {
   let online = false;
-  
   try {
     await discloud.login(TOKEN);
     const responseUser = getDiscloudAppStatus();
@@ -38,7 +36,7 @@ export const Navbar = async () => {
   } catch (error) {
     console.error("Erro ao buscar informações do aplicativo:", error);
   }
-  
+
   const statusBotText = () => {
     if (online) return "Online";
     return "Offline";
@@ -56,16 +54,30 @@ export const Navbar = async () => {
         <ul className="hidden lg:flex gap-4 justify-start ml-2">
           {siteConfig.navItems.map((item) => (
             <NavbarItem key={item.href}>
-              <NextLink
-                className={clsx(
-                  linkStyles({ color: "foreground" }),
-                  "data-[active=true]:text-primary data-[active=true]:font-medium"
-                )}
-                color="foreground"
-                href={item.href}
-              >
-                {item.label}
-              </NextLink>
+              {item.label.includes("Informar um Bug") ? (
+                <Link
+                  isExternal
+                  className={clsx(
+                    linkStyles({ color: "foreground" }),
+                    "data-[active=true]:text-primary data-[active=true]:font-medium"
+                  )}
+                  color="foreground"
+                  href={item.href}
+                >
+                  {item.label}
+                </Link>
+              ) : (
+                <NextLink
+                  className={clsx(
+                    linkStyles({ color: "foreground" }),
+                    "data-[active=true]:text-primary data-[active=true]:font-medium"
+                  )}
+                  color="foreground"
+                  href={item.href}
+                >
+                  {item.label}
+                </NextLink>
+              )}
             </NavbarItem>
           ))}
         </ul>
