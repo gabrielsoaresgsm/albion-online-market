@@ -16,19 +16,18 @@ export const getDiscloudAppStatus = async (): Promise<Root> => {
   }
 };
 
-/*
-export const getDiscord = async (token) => {
-  const url = `https://discord.com/api/v9/users/@me`;
+export const getGuildsDiscord = async () => {
+  const url = `https://discord.com/api/v9/users/@me/guilds`;
   try {
     const response = await axios.get(url, {
       headers: {
-        'Authorization': `Bot ${token}`
+        'Authorization': `Bot ${process.env.DISCORD_TOKEN}`
       }
     });
-    console.log("response", response)
+    console.log("response", response.data)
     return response?.data;
   } catch (error) {
     console.error('Error fetching Discloud app status:', error);
   }
 };
-*/
+

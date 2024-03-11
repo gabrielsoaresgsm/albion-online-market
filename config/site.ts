@@ -1,7 +1,7 @@
 export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
-	name: "Livius Albion Market",
+	name: "Albion Online Market",
 	description: "Otimize seu tempo e realize consultas rápidas de preços em tempo real.",
 	navItems: [
 		{

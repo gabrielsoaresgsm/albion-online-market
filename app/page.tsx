@@ -1,11 +1,8 @@
 import { Link } from "@nextui-org/link";
-import { Snippet } from "@nextui-org/snippet";
-import { Code } from "@nextui-org/code";
 import clsx from "clsx";
 import { button as buttonStyles } from "@nextui-org/theme";
 import { siteConfig } from "@/config/site";
 import { title, subtitle } from "@/components/primitives";
-import { GithubIcon } from "@/components/icons";
 
 export default function Home() {
   return (
@@ -25,12 +22,14 @@ export default function Home() {
         <Link
           isExternal
           href={siteConfig.links.invite}
-          className={clsx(buttonStyles({ radius: "full" }), "bg-primary animate-pulse")}
+          className={clsx(
+            buttonStyles({ radius: "full" }),
+            "bg-primary animate-pulse"
+          )}
         >
           Adicionar ao Servidor
         </Link>
       </div>
-
       <div className="flex flex-col items-center justify-center gap-3 mt-16 lg: max-w-3xl ">
         <h3 className={title({ size: "sm" })}>Por que utilizar?</h3>
         <h2 className={clsx(subtitle(), "text-center")}>
