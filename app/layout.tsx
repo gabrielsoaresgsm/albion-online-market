@@ -40,11 +40,11 @@ export default function RootLayout({
             <main className="flex-grow container mx-auto max-w-7xl pt-16 px-6">
               {children}
             </main>
-            <footer className="w-full flex items-center justify-center py-3 gap-2">
+            <footer className="w-full flex items-center justify-center pb-2 pt-10 gap-2">
               <span className="text-default-600">Copyright © 2024</span>
               <Link
                 isExternal
-                className="text-primary"
+                className="font-highlight"
                 href="https://www.linkedin.com/in/gabrielmielo/"
                 title="Linkedin"
               >

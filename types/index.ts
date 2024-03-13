@@ -43,3 +43,12 @@ export interface User {
   locale: string
   planDataEnd: string
 }
+
+export type Guild = {
+  id: string;
+  name: string;
+  icon: string;
+  owner: boolean;
+  permissions: string;
+  features: string[];
+};

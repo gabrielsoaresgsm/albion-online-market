@@ -91,7 +91,7 @@ export const Navbar = async () => {
           Status do BOT:{" "}
           <span
             className={clsx("font-semibold", {
-              "text-emerald-600": online,
+              "font-highlight": online,
               "text-red-500": !online,
             })}
           >
@@ -116,7 +116,7 @@ export const Navbar = async () => {
           Status:{" "}
           <span
             className={clsx("font-semibold", {
-              "text-emerald-600": online,
+              "font-highlight": online,
               "text-red-500": !online,
             })}
           >
