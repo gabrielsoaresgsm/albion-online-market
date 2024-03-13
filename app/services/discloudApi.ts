@@ -51,3 +51,23 @@ export const getGuildsDiscord = async (): Promise<Guild[]> => {
     return infoFakeGuild;
   }
 };
+
+export const postServerCount = async (serverCount: number) => {
+  const url = `https://top.gg/api/bots/1082860291152420954/stats`;
+  try {
+    const response = await fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `${process.env.TOPGG_TOKEN || ''}`
+      },
+      body: JSON.stringify({ server_count: serverCount })
+    });
+
+    if (!response.ok) throw new Error('Network response was not ok.');
+    return response;
+  } catch (error) {
+    console.error('Error posting server count:', error);
+    return false
+  }
+};

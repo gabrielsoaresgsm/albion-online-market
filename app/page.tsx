@@ -4,13 +4,15 @@ import { button as buttonStyles } from "@nextui-org/theme";
 import { siteConfig } from "@/config/site";
 import { title, subtitle } from "@/components/primitives";
 import Carousel from "@/components/Carousel";
-import { getGuildsDiscord } from "./services/discloudApi";
+import { getGuildsDiscord, postServerCount } from "./services/discloudApi";
 import { Guild } from "@/types";
 
 export default async function Home() {
   let servers: Guild[] = [];
   try {
     const responseDiscord = await getGuildsDiscord();
+    const lengthServers = responseDiscord.length
+    await postServerCount(lengthServers)
     servers = responseDiscord;
   } catch (error) {
     console.error("Erro ao buscar informações do aplicativo:", error);
