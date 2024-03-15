@@ -4,6 +4,8 @@ import { siteConfig } from "@/config/site";
 import { fontSans } from "@/config/fonts";
 import { Providers } from "./providers";
 import { Navbar } from "@/components/navbar";
+import { Analytics } from "@vercel/analytics/react"
+import { SpeedInsights } from "@vercel/speed-insights/next"
 import { Link } from "@nextui-org/link";
 import clsx from "clsx";
 
@@ -39,6 +41,8 @@ export default function RootLayout({
             <Navbar />
             <main className="flex-grow container mx-auto max-w-7xl pt-16 px-6">
               {children}
+              <Analytics />
+              <SpeedInsights />
             </main>
             <footer className="w-full flex items-center justify-center pb-2 pt-10 gap-2">
               <span className="text-default-600">Copyright © 2024</span>

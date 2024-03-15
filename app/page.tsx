@@ -1,11 +1,9 @@
-import { Link } from "@nextui-org/link";
 import clsx from "clsx";
-import { button as buttonStyles } from "@nextui-org/theme";
-import { siteConfig } from "@/config/site";
 import { title, subtitle } from "@/components/primitives";
 import Carousel from "@/components/Carousel";
 import { getGuildsDiscord, postServerCount } from "./services/discloudApi";
 import { Guild } from "@/types";
+import { LinkButton } from "@/components/LinkButton";
 
 export default async function Home() {
   let servers: Guild[] = [];
@@ -33,16 +31,7 @@ export default async function Home() {
         </div>
 
         <div className="flex gap-3">
-          <Link
-            isExternal
-            href={siteConfig.links.invite}
-            className={clsx(
-              buttonStyles({ radius: "full" }),
-              "bg-primary animate-pulse"
-            )}
-          >
-            Adicionar ao Servidor
-          </Link>
+          <LinkButton />
         </div>
         <div className="flex flex-col items-center justify-center gap-3 mt-16 lg: max-w-3xl ">
           <h3 className={title({ size: "sm" })}>Por que utilizar?</h3>
