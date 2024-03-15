@@ -36,12 +36,11 @@ export const getGuildsDiscord = async (): Promise<Guild[]> => {
 
   const response = await fetch(url, {
     method: 'GET',
-    next: { revalidate: 18000 },
     headers: {
       'Authorization': `Bot ${process.env.DISCORD_TOKEN || ''}`
     }
-  });
-
+  }); 
+  
   if (!response.ok) return infoFakeGuild;
 
   const data: Guild[] = await response.json();
