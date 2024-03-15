@@ -2,7 +2,7 @@
 import { siteConfig } from "@/config/site";
 import { Link, LinkProps } from "@nextui-org/link";
 import { button as buttonStyles } from "@nextui-org/theme";
-import { track } from "@vercel/analytics/react";
+import { track } from '@vercel/analytics';
 import clsx from "clsx";
 
 
