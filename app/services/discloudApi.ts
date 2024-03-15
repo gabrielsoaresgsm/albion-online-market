@@ -2,8 +2,8 @@ import { ApiResponse, Guild, Root } from '@/types';
 
 const infoFakeGuild: Guild[] = [
   {
-    id: "",
-    name: "",
+    id: "545477",
+    name: "Albion Online Market",
     icon: "",
     owner: false,
     permissions: "",
@@ -33,23 +33,19 @@ export const getDiscloudAppStatus = async (): Promise<Root> => {
 
 export const getGuildsDiscord = async (): Promise<Guild[]> => {
   const url = `https://discord.com/api/v9/users/@me/guilds`;
-  try {
-    const response = await fetch(url, {
-      method: 'GET', 
-      next: { revalidate: 1800 },
-      headers: {
-        'Authorization': `Bot ${process.env.DISCORD_TOKEN || ''}`
-      }
-    });
 
-    if (!response.ok) throw new Error('Network response was not ok.');
+  const response = await fetch(url, {
+    method: 'GET',
+    next: { revalidate: 1800 },
+    headers: {
+      'Authorization': `Bot ${process.env.DISCORD_TOKEN || ''}`
+    }
+  });
 
-    const data: Guild[] = await response.json();
-    return data;
-  } catch (error) {
-    console.error('Error fetching Discloud app status:', error);
-    return infoFakeGuild;
-  }
+  if (!response.ok) return infoFakeGuild;
+
+  const data: Guild[] = await response.json();
+  return data;
 };
 
 export const postServerCount = async (serverCount: number) => {
