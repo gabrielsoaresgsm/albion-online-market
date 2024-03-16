@@ -39,7 +39,7 @@ export const getGuildsDiscord = async (): Promise<Guild[]> => {
     headers: {
       'Authorization': `Bot ${process.env.DISCORD_TOKEN || ''}`
     },
-    next: {revalidate: 60 * 60 * 5}
+    next: {revalidate: 60 * 60 * 1}
   }); 
   
   if (!response.ok) return infoFakeGuild;
