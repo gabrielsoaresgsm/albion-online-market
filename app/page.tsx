@@ -10,7 +10,7 @@ export default async function Home() {
   try {
     const responseDiscord = await getGuildsDiscord();
     const lengthServers = responseDiscord.length
-    await postServerCount(lengthServers)
+    if (lengthServers > 1) await postServerCount(lengthServers);
     servers = responseDiscord;
   } catch (error) {
     console.error("Erro ao buscar informações do aplicativo:", error);

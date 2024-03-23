@@ -41,6 +41,6 @@ export const siteConfig = {
 	],
 	links: {
 		discord: "https://discord.gg/FXUbAZFFtj",
-		invite: "https://discord.com/oauth2/authorize?client_id=1082860291152420954&permissions=2147593280&scope=bot"
+		invite: process.env.INVITE_LINK
 	},
 };

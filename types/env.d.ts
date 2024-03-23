@@ -3,5 +3,6 @@ declare namespace NodeJS {
     TOKEN: string;
     DISCORD_TOKEN: string;
     TOPGG_TOKEN: string;
+    INVITE_LINK: string;
   }
 }
